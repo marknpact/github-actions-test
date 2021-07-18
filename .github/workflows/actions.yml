@@ -5,6 +5,19 @@ on:
   repository_dispatch: 
     types: [build]
   push:
+    #branches-ignore: # can't do this and also branches:
+    #  - ""
+    branches:
+      - master
+      - 'feature/*' # matches feature/featA, feature/featB, not feature/feat/a
+      - 'feature/**' # matches feature/anything
+      - '!feature/featC' # not match - must be at end
+    tags:
+      - v1.*
+    paths:
+      - '**.js'
+      - '**.yml'
+      - '!docs/**'
   pull_request:
     types: [closed, assigned, opened, reopened]
   #schedule:
