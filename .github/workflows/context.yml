@@ -1,3 +1,5 @@
+name: Context and Functions
+
 on: push
 
 jobs:
